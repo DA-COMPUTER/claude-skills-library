@@ -1,0 +1,40 @@
+name: Compile Registry
+
+on:
+  push:
+    paths:
+      - 'skills/installable-skills/**/*.skill'
+      - 'skills/in-progress-skills/**/*.skill'
+  pull_request:
+    paths:
+      - 'skills/installable-skills/**/*.skill'
+      - 'skills/in-progress-skills/**/*.skill'
+
+jobs:
+  compile-registry:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Compile registry.json
+        run: python .github/scripts/compile_registry.py
+
+      - name: Commit updated registry.json
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add registry.json
+          git diff --cached --quiet || git commit -m "chore: update registry.json [skip ci]"
+          git push
