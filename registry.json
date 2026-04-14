@@ -1,0 +1,23 @@
+[
+  {
+    "name": "skill-installer",
+    "description": "Browse and install skills from this library directly through Claude.",
+    "author": "DA-COMPUTER",
+    "version": "1.0.0",
+    "status": "stable"
+  },
+  {
+    "name": "personality-plus",
+    "description": "Create, save, and chat with custom AI personalities — with stats, knowledge files, and a full management UI.",
+    "author": "DA-COMPUTER",
+    "version": "1.0.0",
+    "status": "stable"
+  },
+  {
+    "name": "bloxd-api",
+    "description": "Write, debug, and look up world code for Bloxd.io — always fetches live API docs from GitHub before answering.",
+    "author": "DA-COMPUTER",
+    "version": "1.0.0",
+    "status": "stable"
+  }
+]
