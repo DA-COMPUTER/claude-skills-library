@@ -11,7 +11,7 @@
     "description": "Create, save, and chat with custom AI personalities — with stats, knowledge files, and a full management UI.",
     "author": "DA-COMPUTER",
     "version": "1.0.0",
-    "status": "stable"
+    "status": "beta"
   },
   {
     "name": "bloxd-api",
